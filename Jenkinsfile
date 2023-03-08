@@ -1,8 +1,8 @@
 pipeline { 
     agent any 
     environment { 
-        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id') 
-        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
+        AWS_ACCESS_KEY_ID     = credentials('jenkins_iam_accesskey_id') 
+        AWS_SECRET_ACCESS_KEY = credentials('jenkins_iam_secret_accesskey_id')
         SBT_OPTS = "${SBT_OPTS} -Dsbt.color=false"
     }
     stages { 
@@ -48,6 +48,7 @@ pipeline {
         stage('Terraform Apply') { 
             steps { 
                 sh 'terraform apply -auto-approve'
+                sh 'sleep 300'
             } 
         }
         stage('Run terraform destroy or not?') {
