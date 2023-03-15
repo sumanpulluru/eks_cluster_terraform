@@ -3,4 +3,3 @@
 - AWS EKS Cluster
 - Jenkins CICD
 - SonarQube
-- Sonarscanner
