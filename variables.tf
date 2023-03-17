@@ -7,7 +7,7 @@ variable "cluster_name" {
 variable "aws_region" {
   description = "Region on which to host EKS Cluster"
   type        = string
-  default     = "us-east-2"
+  default     = "us-east-1"
 }
 
 variable "vpc_network" {
